@@ -14,7 +14,8 @@ INCLUDE_PATH="${PREFIX}/include"
 LIBRARY_PATH="${PREFIX}/lib"
 
 # Always build PIC code for enable static linking into other shared libraries
-CXXFLAGS="${CXXFLAGS} -fPIC"
+# Use old ABI for std::string
+CXXFLAGS="${CXXFLAGS} -fPIC -D_GLIBCXX_USE_CXX11_ABI=0"
 
 if [ "$(uname)" == "Darwin" ]; then
     TOOLSET=clang
